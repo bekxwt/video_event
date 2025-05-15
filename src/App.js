@@ -649,7 +649,7 @@ import { LeaveScreen } from "./components/screens/LeaveScreen";
 import { JoiningScreen } from "./components/screens/JoiningScreen";
 
 function App() {
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(process.env.REACT_APP_VIDEOSDK_TOKEN || "");
   const [meetingId, setMeetingId] = useState("");
   const [participantName, setParticipantName] = useState("");
   const [micOn, setMicOn] = useState(false);
@@ -671,10 +671,24 @@ function App() {
   }, [isMobile]);
 
   // Обработчик успешной авторизации с Google
-  const handleGoogleSuccess = (response) => {
-    setGoogleAuthToken(response.credential); // Сохранение токена
-    console.log("Google login successful:", response);
+  const handleGoogleSuccess = async (response) => {
+    const idToken = response.credential;
+    try {
+      const res = await fetch('/api/auth/google', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id_token: idToken }),
+      });
+      if (!res.ok) throw new Error('Auth failed');
+      const { user } = await res.json();
+      console.log('Logged in user:', user);
+      // store user in state/context if you need to show profile, etc.
+      setGoogleAuthToken(idToken);
+    } catch (err) {
+      console.error(err);
+    }
   };
+
 
   // Обработчик ошибки авторизации с Google
   const handleGoogleError = (error) => {

@@ -6,7 +6,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
-// ⚠️ ЗАМЕНИ ЭТО НА СВОЙ КЛЮЧ из Google Cloud Console
 const GOOGLE_CLIENT_ID = "684662195771-vmh3kgdooeccuafc3as1u3jjmmcv3k5i.apps.googleusercontent.com";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

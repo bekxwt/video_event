@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://lab.videosdk.live/react-rtc-demo/",
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
@@ -11,6 +12,7 @@
     "@videosdk.live/react-sdk": "^0.2.1",
     "jwt-decode": "^4.0.0",
     "lottie-react": "^2.4.1",
+    "pg": "^8.16.0",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-loader": "^8.1.1",
     "ra-data-fakerest": "^5.8.1",
@@ -21,7 +23,7 @@
     "react-player": "^2.16.0",
     "react-responsive": "^10.0.1",
     "react-router-dom": "^7.6.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "react-toastify": "^11.0.5",
     "web-vitals": "^4.2.4"
   },
