@@ -1,4 +1,4 @@
-# VideoSDK RTC React SDK Example
+# Video Event 
 
 This project demonstrates how to use the [VideoSDK RTC React SDK](https://docs.videosdk.live/react/guide/video-and-audio-calling) to build real-time video and audio calling applications in React.
 
